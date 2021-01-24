@@ -21,4 +21,24 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* Steps to create API
+
+** Create models
+$ rails g model Todo title:string created_by:string
+$ rails g model Item name:string done:boolean todo:references
+$ rails db:migrate
+
+** Create controllers
+$ rails g controller Todos
+$ rails g controller Items
+
+$ mkdir spec/requests 
+$ touch spec/requests/todos_spec.rb
+$ touch spec/requests/items_spec.rb
+
+$ touch spec/factories/todos.rb
+$ touch spec/factories/items.rb
+
+* Run the test
+bundle exec rspec
+

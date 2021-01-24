@@ -1,17 +1,13 @@
 version: '3.8'
 services:
-  rails_app:
-    image: my_rails_app
-    build: .
-    volumes: 
-      - ./apps:/var/apps
-    networks:
-      - complete-network
   rails_api:
-    image: my_rails_api
+    image: rails_api
     build: .
     volumes: 
-      - ./apps:/var/apps
+      - ./apps/todos-api:/var/app
+    ports:
+      - 3000:3000
+    command: bash -c "rm -f tmp/pids/server.pid && cd var/app && bundle install && rails db:migrate && bundle exec rails s -p 3000 -b '0.0.0.0'"
     networks:
       - complete-network
 
