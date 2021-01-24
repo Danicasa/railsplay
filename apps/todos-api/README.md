@@ -25,8 +25,10 @@ Things you may want to cover:
 
 ** Create models
 $ rails g model Todo title:string created_by:string
-$ rails g model Item name:string done:boolean todo:references
+$ rails g model Item name:string done:boolean 
+$ rails g model User name:string email:string password_digest:string
 $ rails db:migrate
+$ rails db:test:prepare
 
 ** Create controllers
 $ rails g controller Todos
